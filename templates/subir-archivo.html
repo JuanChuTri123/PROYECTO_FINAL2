@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Subir archivo
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Subir archivo</title>
+</head>
+
+<body>
+
+    <h2>Subir archivo de consumo energético</h2>
+
+    <!-- Mensajes flash -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <p style="color: white;">{{ messages[0] }}</p>
+    {% endif %}
+    {% endwith %}
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <!-- Zona de subida de archivo -->
+        <label>Selecciona un archivo CSV:</label><br>
+        <input type="file" name="archivo_csv" id="archivo_csv" accept=".csv, .xlsx" required><br><br>
+
+        <!-- Selección de año -->
+        <label for="anio">Año:</label>
+        <select name="anio" id="anio">
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+        </select><br><br>
+
+        <!-- Selección de mes -->
+        <label for="mes">Mes:</label>
+        <select name="mes" id="mes">
+            <option value="1">Enero</option>
+            <option value="2">Febrero</option>
+            <option value="3">Marzo</option>
+            <option value="4">Abril</option>
+            <option value="5">Mayo</option>
+            <option value="6">Junio</option>
+            <option value="7">Julio</option>
+            <option value="8">Agosto</option>
+            <option value="9">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select><br><br>
+
+        <!-- Botón para enviar -->
+        <button type="submit">Procesar</button>
+    </form>
+
+    {% set mensajes = get_flashed_messages() %}
+    {% if '✅ Todo correcto, proceda a guardar!' in mensajes or '⚠️ El archivo con ese año y mes ya existe. Si continúa lo reemplazará!' in mensajes %}
+    <form action="/filtrar" method="post">
+        <button type="submit">➡️ Filtrar datos (solo Huaraz)</button>
+    </form>
+    {% endif %}
+    
+</body>
+
+</html>
+
+{% endblock %}
