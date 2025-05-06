@@ -1,12 +1,44 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Manual de Usuario
+Predicciones
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <h2>Predicciones</h2>
-    <p>Aquí irá lo necesario para hacer la prediccion según los datos que se tiene...</p>
-</div>
+
+<h2>Predicciones</h2>
+
+<!-- Mensajes flash -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<p style="color: white;">{{ messages[0] }}</p>
+{% endif %}
+{% endwith %}
+
+<form method="POST" action="/procesar">
+    <label for="anio">Año:</label>
+    <select name="anio" required>
+      {% for y in range(2025, 2031) %}
+        <option value="{{ y }}">{{ y }}</option>
+      {% endfor %}
+    </select>
+  
+    <label for="trimestre">Trimestre:</label>
+    <select name="trimestre" required>
+      <option value="01">I (Ene-Mar)</option>
+      <option value="04">II (Abr-Jun)</option>
+      <option value="07">III (Jul-Sep)</option>
+      <option value="10">IV (Oct-Dic)</option>
+    </select>
+  
+    <button type="submit">Procesar</button>
+  </form>
+  
+  {% set mensajes = get_flashed_messages() %}
+  {% if '✅ Proceso completado, prosiga a predecir' in mensajes %}
+  <form method="POST" action="/predecir">
+    <button type="submit">Predecir y guardar</button>
+  </form>
+  {% endif %}
+  
 {% endblock %}

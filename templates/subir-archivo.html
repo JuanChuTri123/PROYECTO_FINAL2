@@ -44,18 +44,18 @@ Subir archivo
         <!-- Selección de mes -->
         <label for="mes">Mes:</label>
         <select name="mes" id="mes">
-            <option value="1">Enero</option>
-            <option value="2">Febrero</option>
-            <option value="3">Marzo</option>
-            <option value="4">Abril</option>
-            <option value="5">Mayo</option>
-            <option value="6">Junio</option>
-            <option value="7">Julio</option>
-            <option value="8">Agosto</option>
-            <option value="9">Septiembre</option>
-            <option value="10">Octubre</option>
-            <option value="11">Noviembre</option>
-            <option value="12">Diciembre</option>
+            <option value="1">(1) Enero</option>
+            <option value="2">(2) Febrero</option>
+            <option value="3">(3) Marzo</option>
+            <option value="4">(4) Abril</option>
+            <option value="5">(5) Mayo</option>
+            <option value="6">(6) Junio</option>
+            <option value="7">(7) Julio</option>
+            <option value="8">(8) Agosto</option>
+            <option value="9">(9) Septiembre</option>
+            <option value="10">(10) Octubre</option>
+            <option value="11">(11) Noviembre</option>
+            <option value="12">(12) Diciembre</option>
         </select><br><br>
 
         <!-- Botón para enviar -->
@@ -65,7 +65,7 @@ Subir archivo
     {% set mensajes = get_flashed_messages() %}
     {% if '✅ Todo correcto, proceda a guardar!' in mensajes or '⚠️ El archivo con ese año y mes ya existe. Si continúa lo reemplazará!' in mensajes %}
     <form action="/filtrar" method="post">
-        <button type="submit">➡️ Filtrar datos (solo Huaraz)</button>
+        <button type="submit">➡️ Filtrar y guardar)</button>
     </form>
     {% endif %}
     
