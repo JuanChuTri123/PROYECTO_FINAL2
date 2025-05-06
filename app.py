@@ -20,5 +20,5 @@ app.register_blueprint(predict)
 if __name__=="__main__":
     app.run(
         debug=True,
-        port=5054
+        port=5055
 )
