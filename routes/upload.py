@@ -95,12 +95,7 @@ def upload_csv():
 
                 # Verificación de si ya existe ese año y mes
                 existe = ((df_hist['ANIO'] == anio) & (df_hist['MES'] == mes)).any()
-                
-                # Depuración: mostrar lo que estás comparando
-                print("Formulario:", anio, mes)
-                print("CSV únicos ANIO:", df_hist['ANIO'].unique())
-                print("CSV únicos MES:", df_hist['MES'].unique())
-
+            
                 if existe:
                     flash("⚠️ El archivo con ese año y mes ya existe. Si continúa lo reemplazará!", "warning")
                 else:
