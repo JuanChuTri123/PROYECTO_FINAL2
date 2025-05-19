@@ -6,7 +6,19 @@ Base de datos
 
 {% block content %}
 <div class="container">
-    <h2>Base de datos</h2>
-    <p>Aquí irá toda la información de la base de datos...</p>
+    <h2>Tabla de Consumo Histórico</h2>
+    <form id="form-anio" action="{{ url_for('tablas.mostrar_tabla') }}" method="get">
+        <label for="anio">Seleccionar año:</label>
+        <select name="anio" id="anio">
+            <option value="">-- Selecciona un año --</option>
+            {% for anio in range(2022, 2031) %}
+            <option value="{{ anio }}" {% if request.args.get('anio') == anio|string %}selected{% endif %}>{{ anio }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <div style="margin-top: 20px;">
+        {{ tabla|safe }}
+    </div>
 </div>
 {% endblock %}
