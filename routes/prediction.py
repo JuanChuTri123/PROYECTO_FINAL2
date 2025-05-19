@@ -61,7 +61,13 @@ def predecir():
 
     # 3. Entrenar Prophet hasta última fecha
     df_train = df[df['ds'] <= ultima_fecha][['ds', 'y']]
-    model = Prophet()
+    
+    params = {
+    'changepoint_prior_scale': 0.01,
+    'seasonality_prior_scale': 0.01,
+    'seasonality_mode': 'multiplicative'
+    }
+    model = Prophet(**params)
     model.fit(df_train)
 
     # 4. Generar solo las 3 fechas futuras
@@ -70,10 +76,7 @@ def predecir():
     forecast = model.predict(future_df)
     pred_trimestre = forecast[['ds', 'yhat']]
 
-    # 5. Guardar en Prediccion_Huaraz_Trimestres.csv
-    # pred_trimestre.to_csv("static/data/Prediccion_Huaraz_Trimestres.csv", index=False, encoding="utf-8-sig")
-
-    # 6. Verificar si las fechas ya existen en PrediccionHuarazTotal.csv
+    # 5. Verificar si las fechas ya existen en PrediccionHuarazTotal.csv
     pred_uno_path = "static/data/Predicciones/PrediccionHuarazTotal.csv"
     df_pred_uno = pd.read_csv(pred_uno_path, sep=";") if os.path.exists(pred_uno_path) else pd.DataFrame(columns=['ANIO', 'MES', 'PREDICCION_KWH', 'CONSUMO_REAL_KWH', 'MARGEN_ERROR(MAPE)'])
 
