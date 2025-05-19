@@ -41,3 +41,10 @@ function closeAllSubMenus(){
       link.parentElement.classList.remove('active');
     }
   });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const select = document.getElementById("anio");
+    select.addEventListener("change", function () {
+        document.getElementById("form-anio").submit();
+    });
+});
