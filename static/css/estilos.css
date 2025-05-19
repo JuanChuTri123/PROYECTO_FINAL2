@@ -213,26 +213,3 @@ main p{
     }
   }
 }
-
-/* CSS para la tabla de DataHistorica */
-.mi-tabla {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.mi-tabla th, .mi-tabla td {
-    border: 1px solid #ddd;
-    padding: 4px;
-    text-align: center;
-}
-
-.mi-tabla th {
-    background-color: #333;
-    color: #ddd;
-}
-
-.mi-tabla tr:nth-child(even) {
-    background-color: #333;
-}
