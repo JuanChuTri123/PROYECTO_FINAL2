@@ -5,18 +5,9 @@ Subir archivo
 {% endblock %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Subir archivo</title>
-</head>
-
-<body>
-
+<div class="container">
     <h2>Subir archivo de consumo energético</h2>
-
     <!-- Mensajes flash -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -24,7 +15,11 @@ Subir archivo
     {% endif %}
     {% endwith %}
 
+    <!-- Se activa el poder subir archivos solo cuando detecte que ya predijo -->
+    {% if puede_subir %}
+
     <form action="/upload" method="post" enctype="multipart/form-data">
+
         <!-- Zona de subida de archivo -->
         <label>Selecciona un archivo CSV:</label><br>
         <input type="file" name="archivo_csv" id="archivo_csv" accept=".csv, .xlsx" required><br><br>
@@ -63,14 +58,30 @@ Subir archivo
     </form>
 
     {% set mensajes = get_flashed_messages() %}
-    {% if '✅ Todo correcto, proceda a guardar!' in mensajes or '⚠️ El archivo con ese año y mes ya existe. Si continúa lo reemplazará!' in mensajes %}
+    {% if '✅ Todo correcto, proceda a guardar!' in mensajes
+    or '⚠️ El archivo con ese año y mes ya existe. Si continúa lo reemplazará!' in mensajes %}
     <form action="/filtrar" method="post">
         <button type="submit">➡️ Filtrar y guardar)</button>
     </form>
     {% endif %}
-    
-</body>
 
-</html>
+    {% if meses_faltantes %}
+    <div style="margin-top: 20px; padding: 10px; background-color: #333; border-left: 5px solid #007BFF;">
+        <h4>Meses pendientes por subir datos reales:</h4>
+        <ul>
+            {% for anio, mes in meses_faltantes %}
+            <li>{{ "(%02d) " % mes }}{{ ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"][mes-1] }} {{ anio }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% else %}
+<p style="color: orange;">Subida de archivos deshabilitada hasta que se generen predicciones.</p>
+{% endif %}
+
+
+
 
 {% endblock %}
