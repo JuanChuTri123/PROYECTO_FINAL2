@@ -33,12 +33,32 @@ Predicciones
   
     <button type="submit">Procesar</button>
   </form>
-  
+
   {% set mensajes = get_flashed_messages() %}
   {% if '✅ Proceso completado, prosiga a predecir' in mensajes %}
   <form method="POST" action="/predecir">
     <button type="submit">Predecir y guardar</button>
   </form>
   {% endif %}
+
+ <h3>Tabla de predicciones por año</h3>
+
+<form id="form-anio" method="get" action="{{ url_for('sidebar.predicciones') }}">
+    <label for="anio">Seleccionar año:</label>
+    <select name="anio" id="anio" onchange="this.form.submit()">
+        <option value="">-- Selecciona un año --</option>
+        {% for y in range(2025, 2031) %}
+        <option value="{{ y }}" {% if anio == y %}selected{% endif %}>{{ y }}</option>
+        {% endfor %}
+    </select>
+</form>
+
+<div style="margin-top: 20px;">
+    {{ tabla|safe }}
+</div>
+
+
+  
+
   
 {% endblock %}
