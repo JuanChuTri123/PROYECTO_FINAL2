@@ -15,6 +15,9 @@
   transition: .5s;
   white-space: nowrap;
 }
+.tituloman{
+    text-align: center;
+}
 .centrarmanual{
     display: flex;
     flex-direction: column;
@@ -71,7 +74,11 @@ p {
   padding: 0.75em calc(var(--wide)*3em + (1 - var(--wide))*2vw);
   width: 35em;
   max-width: calc(var(--wide)*75% + (1 - var(--wide))*100%);
+<<<<<<< HEAD
   color: #11121a;
+=======
+  color:#11121a;
+>>>>>>> af29334da4ddf68cfb069ece2a5e04d9addd89ac
   font: 600 1em/ 1.25 roboto, sans-serif;
   counter-increment: p;
 }
