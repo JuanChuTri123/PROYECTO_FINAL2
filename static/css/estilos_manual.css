@@ -15,6 +15,9 @@
   transition: .5s;
   white-space: nowrap;
 }
+.tituloman{
+    text-align: center;
+}
 .centrarmanual{
     display: flex;
     flex-direction: column;
