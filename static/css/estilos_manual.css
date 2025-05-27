@@ -71,7 +71,7 @@ p {
   padding: 0.75em calc(var(--wide)*3em + (1 - var(--wide))*2vw);
   width: 35em;
   max-width: calc(var(--wide)*75% + (1 - var(--wide))*100%);
-  color: #fff;
+  color: #11121a;
   font: 600 1em/ 1.25 roboto, sans-serif;
   counter-increment: p;
 }
