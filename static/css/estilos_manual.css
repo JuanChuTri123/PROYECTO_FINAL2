@@ -1,0 +1,102 @@
+#btn--yp {
+  box-sizing: content-box;
+  position: fixed;
+  z-index: 9;
+  bottom: 1em;
+  right: 1em;
+  border: solid 1em transparent;
+  width: 4.625em;
+  height: 3.25em;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/icon-yp.svg) 50%/cover content-box;
+  font: 16px/ 1.25 trebuchet ms, sans-serif;
+  text-indent: 200vw;
+  text-shadow: none;
+  filter: grayscale(1) drop-shadow(0 0 1px #e8e0e0);
+  transition: .5s;
+  white-space: nowrap;
+}
+#btn--yp:before {
+  box-sizing: inherit;
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  margin: 1em -.5em;
+  padding: .5em;
+  width: 100%;
+  border-radius: 5px;
+  background: #443131;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0vw;
+  white-space: normal;
+  animation: float 1s ease-in-out infinite alternate;
+  content: attr(data-txt);
+}
+#btn--yp:hover, #btn--yp:focus {
+  outline: none;
+  filter: grayscale(0) drop-shadow(0 0 1px crimson);
+}
+
+@keyframes float {
+  to {
+    transform: translateY(0.75em);
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+body {
+
+text-align: center;
+
+}
+
+p {
+  --wide: 0;
+  --s: calc(1 - 2*var(--j));
+  display: flex;
+  flex-direction: var(--fdf, var(--narr, column));
+  align-items: center;
+  position: relative;
+  z-index: calc(-1*var(--i));
+  margin-left: calc(var(--wide)*(var(--p) - var(--i) - 2.5*var(--j) + 1)*6.5vw);
+  padding: 0.75em calc(var(--wide)*3em + (1 - var(--wide))*2vw);
+  width: 35em;
+  max-width: calc(var(--wide)*75% + (1 - var(--wide))*100%);
+  color: #fff;
+  font: 600 1em/ 1.25 roboto, sans-serif;
+  counter-increment: p;
+}
+@media (min-width: 640px) {
+  p {
+    --wide: 1 ;
+  }
+}
+@media (min-width: 320px) {
+  p {
+    --narr: 0 ;
+  }
+}
+p:before {
+  --m: calc(1 - var(--narr, 1));
+  order: calc(var(--m)*var(--j));
+  padding: 0 calc(var(--m)*(1 - var(--j))*1rem) 0 calc(var(--m)*var(--j)*1rem);
+  font-size: 5em;
+  content: counter(p,decimal-leading-zero);
+}
+p:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: -0.75em;
+  left: 0;
+  z-index: -1;
+  padding-bottom: 0.75em;
+  transform: skewx(calc(var(--wide)*-22.5deg));
+  background: linear-gradient(calc(var(--s)*-90deg), var(--slist)) content-box, radial-gradient(rgba(0, 0, 0, 0.35), transparent 70%) calc(var(--j)*100%) 100%/ 65% 1.5em no-repeat;
+  content: "";
+}

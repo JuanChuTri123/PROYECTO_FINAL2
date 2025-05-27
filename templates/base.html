@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilostablas.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_inicio.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}" defer></script>
     <title>{% block title %}Inicio{% endblock %}</title>
 </head>
@@ -88,8 +89,25 @@
     <main>
         {% block content %}
         <div class="container">
-            <h2>INICIO</h2>
-            <p>Aquí irá EL INICIO..</p>
+            <!-- <h2>INICIO</h2>
+            <p>Aquí irá EL INICIO..</p> -->
+            <h1 class="bienvenida">Bienvenido al Sistema de Predicción de Consumo Energético Urbano</h1>
+            <br>
+
+
+        </div>
+        <div class="container">
+            
+
+            <h3>Este programa utiliza modelos avanzados de análisis de datos para predecir el consumo energético en tu ciudad, ayudando a optimizar los recursos y planificar de manera más eficiente el uso de energía. Con las predicciones generadas, se puede anticipar la demanda energética y tomar decisiones informadas para asegurar la sostenibilidad y eficiencia en el suministro.
+
+                El sistema evalúa variables clave como patrones de consumo histórico, condiciones climáticas y tendencias de comportamiento, lo que permite proyectar las necesidades futuras de energía de manera precisa.
+
+                Por favor, selecciona una de las opciones disponibles para comenzar.</h3>
+        </div>
+        <div class="container">
+            <h1>prueba</h1>
+
         </div>
     {% endblock %}
     </main>

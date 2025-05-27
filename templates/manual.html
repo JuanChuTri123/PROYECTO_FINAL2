@@ -1,3 +1,5 @@
+
+
 {% extends 'base.html' %}
 
 {% block title %}
@@ -5,8 +7,31 @@ Manual de Usuario
 {% endblock %}
 
 {% block content %}
-<div class="container">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_manual.css') }}">
+    
+    <body>
+   <div class="container ">
     <h2>Manual de Uso</h2>
-    <p>Aquí irá toda la información del manual...</p>
+   </div>
+
+    <!-- <p>Aquí irá toda la información del manual...</p> -->
+    <style>:root { --j: 0; --p: 1.5 }
+  p:nth-child(2n) { --j: 1 }
+  
+</style>
+<h1 class="centrar"></h1>
+<div class="container ">
+
+<p style="--i: 0; --slist: #b2dc33,#9cd400;">Cake muffin donut chocolate cake jelly sesame snaps wafer tart pie sweet roll muffin chupa chups. Brownie ice cream gingerbread cookie lemon drops. Liquorice marzipan macaroon sugar plum apple pie soufflé topping dessert.</p>
+<p style="--i: 1; --slist: #f1ce02,#fba502;">Cake cookie lemon drops muffin sugar plum. Liquorice pudding sugar plum topping macaroon pie chocolate. Dessert gingerbread jelly cake soufflé chocolate cake. Apple pie chocolate bar topping donut powder muffin cake tart.</p>
+<p style="--i: 2; --slist: #ff79ac,#fd4c90;">Cake muffin donut chocolate cake jelly sesame snaps wafer tart pie sweet roll muffin chupa chups. Brownie ice cream gingerbread cookie lemon drops. Liquorice marzipan macaroon sugar plum apple pie soufflé topping dessert.</p>
+<p style="--i: 3; --slist: #261e77,#2317cc;">Cake cookie lemon drops muffin sugar plum. Liquorice pudding sugar plum topping macaroon pie chocolate. Dessert gingerbread jelly cake soufflé chocolate cake. Apple pie chocolate bar topping donut powder muffin cake tart.</p>
 </div>
+
+</h1>
+
+
+    </body>
+
 {% endblock %}
