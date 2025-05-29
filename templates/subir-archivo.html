@@ -25,12 +25,9 @@ Subir archivo
     <form action="/upload" method="post" enctype="multipart/form-data">
 
         <!-- Zona de subida de archivo -->
-        <label>Selecciona un archivo CSV:</label><br>
-<div class="sele_input">
-        <input class="btnsubir" type="file"  name="archivo_csv" id="archivo_csv" accept=".csv, .xlsx" required><br><br>
+        <label> 📁 Selecciona un archivo CSV:</label><br>
+        <input class="button" type="file"  name="archivo_csv" id="archivo_csv" accept=".csv, .xlsx" required><br><br>
 
-
-</div>
 
 
 
@@ -64,7 +61,7 @@ Subir archivo
         </select><br><br>
 
         <!-- Botón para enviar -->
-        <button type="submit">Procesar</button>
+        <button class="btn" type="submit">Procesar</button>
     </form>
 
     {% set mensajes = get_flashed_messages() %}
