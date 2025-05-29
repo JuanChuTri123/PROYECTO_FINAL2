@@ -5,9 +5,13 @@ Subir archivo
 {% endblock %}
 
 {% block content %}
+<head>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
+</head>
 
+<div class="container"> <h2 class="titulo1_subir">Subir archivo de consumo energético</h2></div>
 <div class="container">
-    <h2>Subir archivo de consumo energético</h2>
+   
     <!-- Mensajes flash -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -22,7 +26,13 @@ Subir archivo
 
         <!-- Zona de subida de archivo -->
         <label>Selecciona un archivo CSV:</label><br>
-        <input type="file" name="archivo_csv" id="archivo_csv" accept=".csv, .xlsx" required><br><br>
+<div class="sele_input">
+        <input class="btnsubir" type="file"  name="archivo_csv" id="archivo_csv" accept=".csv, .xlsx" required><br><br>
+
+
+</div>
+
+
 
         <!-- Selección de año -->
         <label for="anio">Año:</label>

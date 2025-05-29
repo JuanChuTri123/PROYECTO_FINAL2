@@ -6,7 +6,14 @@ Predicciones
 
 {% block content %}
 
-<h2>Predicciones</h2>
+<head>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
+</head>
+<div class="container">
+<h2 class="titulopred">Predicciones</h2>
+</div>
+
+<div class="container">
 
 <!-- Mensajes flash -->
 {% with messages = get_flashed_messages() %}
@@ -19,10 +26,11 @@ Predicciones
     <label for="anio">Año:</label>
     <select name="anio" required>
       {% for y in range(2025, 2031) %}
+
         <option value="{{ y }}">{{ y }}</option>
       {% endfor %}
     </select>
-  
+  </br>
     <label for="trimestre">Trimestre:</label>
     <select name="trimestre" required>
       <option value="01">I (Ene-Mar)</option>
@@ -62,3 +70,5 @@ Predicciones
 
   
 {% endblock %}
+  
+</div>
