@@ -163,41 +163,41 @@ def filtrar_datos():
             df_hist_huaraz.to_csv(ruta_huaraz, sep=";", index=False, encoding="utf-8-sig")
 
         # Guardar archivos de distritos (solo Huaraz)
-        if not df_huaraz.empty:
-            distritos = [
-                "Cochabamba", "Colcabamba", "Huanchay", "Huaraz", "Independencia", "Jangas",
-                "La Libertad", "Olleros", "Pampas Grande", "Pariacoto", "Pira", "Tarica"
-            ]
+        # if not df_huaraz.empty:
+        #     distritos = [
+        #         "Cochabamba", "Colcabamba", "Huanchay", "Huaraz", "Independencia", "Jangas",
+        #         "La Libertad", "Olleros", "Pampas Grande", "Pariacoto", "Pira", "Tarica"
+        #     ]
 
-            for distrito in distritos:
-                consumo_distrito = df_huaraz[
-                    df_huaraz["DISTRITO"].str.upper().str.strip() == distrito.upper()
-                ]["CONSUMO"].sum()
+        #     for distrito in distritos:
+        #         consumo_distrito = df_huaraz[
+        #             df_huaraz["DISTRITO"].str.upper().str.strip() == distrito.upper()
+        #         ]["CONSUMO"].sum()
 
-                ruta_distrito = os.path.join("static", "data", "Distritos", f"{distrito}.csv")
+        #         ruta_distrito = os.path.join("static", "data", "Distritos", f"{distrito}.csv")
 
-                if os.path.exists(ruta_distrito):
-                    df_distrito = pd.read_csv(ruta_distrito, sep=";", encoding="utf-8")
-                else:
-                    df_distrito = pd.DataFrame(columns=["ANIO", "MES", "CONSUMO_TOTAL_KWH"])
+        #         if os.path.exists(ruta_distrito):
+        #             df_distrito = pd.read_csv(ruta_distrito, sep=";", encoding="utf-8")
+        #         else:
+        #             df_distrito = pd.DataFrame(columns=["ANIO", "MES", "CONSUMO_TOTAL_KWH"])
 
-                df_distrito = df_distrito[
-                    ~((df_distrito["ANIO"].astype(str) == anio) & (df_distrito["MES"].astype(str) == mes))
-                ]
+        #         df_distrito = df_distrito[
+        #             ~((df_distrito["ANIO"].astype(str) == anio) & (df_distrito["MES"].astype(str) == mes))
+        #         ]
 
-                nueva_fila = {
-                    "ANIO": anio,
-                    "MES": mes,
-                    "CONSUMO_TOTAL_KWH": consumo_distrito
-                }
+        #         nueva_fila = {
+        #             "ANIO": anio,
+        #             "MES": mes,
+        #             "CONSUMO_TOTAL_KWH": consumo_distrito
+        #         }
 
-                df_distrito = pd.concat([df_distrito, pd.DataFrame([nueva_fila])], ignore_index=True)
-                df_distrito["ANIO"] = df_distrito["ANIO"].astype(int)
-                df_distrito["MES"] = df_distrito["MES"].astype(int)
-                df_distrito = df_distrito.sort_values(by=["ANIO", "MES"])
-                df_distrito.to_csv(ruta_distrito, sep=";", index=False, encoding="utf-8-sig")
-                print(f"[{distrito}] -> Consumo: {consumo_distrito}")
-                print(f"Guardado en: {ruta_distrito}")
+        #         df_distrito = pd.concat([df_distrito, pd.DataFrame([nueva_fila])], ignore_index=True)
+        #         df_distrito["ANIO"] = df_distrito["ANIO"].astype(int)
+        #         df_distrito["MES"] = df_distrito["MES"].astype(int)
+        #         df_distrito = df_distrito.sort_values(by=["ANIO", "MES"])
+        #         df_distrito.to_csv(ruta_distrito, sep=";", index=False, encoding="utf-8-sig")
+        #         print(f"[{distrito}] -> Consumo: {consumo_distrito}")
+        #         print(f"Guardado en: {ruta_distrito}")
 
         # Actualizar PrediccionHuarazTotal.csv con el consumo real y MAPE
         pred_uno_path = os.path.join("static", "data", "Predicciones", "PrediccionHuarazTotal.csv")
