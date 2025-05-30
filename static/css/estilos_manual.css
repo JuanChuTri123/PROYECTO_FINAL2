@@ -88,6 +88,7 @@ p {
     --narr: 0 ;
   }
 }
+
 p:before {
   --m: calc(1 - var(--narr, 1));
   order: calc(var(--m)*var(--j));
