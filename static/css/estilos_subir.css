@@ -18,9 +18,6 @@ text-align: center;
 .sele_input{
     text-align: center;
 }
-.btnselec{
-    text-align: center;
-}
 
 .button {
   padding: 1rem 2rem;
@@ -32,6 +29,7 @@ text-align: center;
   text-align: center;
   position: relative;
   cursor: pointer;
+
 }
 
 .button::before {
@@ -113,9 +111,10 @@ mask-composite: xor;
 }
 
 .btn {
- background-color: #00BFA6;
+ text-align: center;
+ background-color: #3f0c83;
  padding: 14px 40px;
- color: #fff;
+ color: #000000;
  text-transform: uppercase;
  letter-spacing: 2px;
  cursor: pointer;
@@ -132,7 +131,7 @@ mask-composite: xor;
 .btn:hover {
  transition: .4s;
  border: 2px dashed #00BFA6;
- background-color: #fff;
+ background-color: #0d21ce;
  color: #00BFA6;
 }
 
@@ -140,3 +139,29 @@ mask-composite: xor;
  background-color: #87dbd0;
 }
 
+
+
+.buttonga {
+  margin: 12px;
+  height: 50px;
+  width: 120px;
+  border-radius: 10px;
+  background: #333;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+    inset -5px -5px 10px #222;
+  font-family: "Damion", cursive;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  color: rgb(161, 161, 161);
+  transition: 500ms;
+}
+
+.buttonga:hover {
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222,
+    inset -5px -5px 10px #444;
+  color: #d6d6d6;
+  transition: 500ms;
+}
