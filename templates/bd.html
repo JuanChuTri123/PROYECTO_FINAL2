@@ -7,7 +7,7 @@ Base de datos
 {% block content %}
 
 <head>
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/select.css') }}">
 </head>
 <div class="card lightblue">
     <h2 class="titulobd">Tabla de Consumo Histórico</h2>
@@ -15,7 +15,7 @@ Base de datos
 <div class="container lightblue">
 
     <form id="form-anio" action="{{ url_for('tablas.mostrar_tabla') }}" method="get">
-        <label for="anio">Seleccionar año:</label>
+        <label for="anio" style="font-weight: bold; font-size: 20px;">Seleccionar año:</label>
         <select name="anio" id="anio">
             <option value="">-- Selecciona un año --</option>
             {% for anio in range(2022, 2031) %}
