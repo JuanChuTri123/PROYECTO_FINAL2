@@ -9,7 +9,7 @@ Subir archivo
  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
 </head>
 
-<div class="container"> <h2 class="titulo1_subir">Subir archivo de consumo energético</h2></div>
+<div class="card blue"> <h2 class="titulo1_subir">Subir archivo de consumo energético</h2></div>
 <div class="container">
    
     <!-- Mensajes flash -->
@@ -25,12 +25,15 @@ Subir archivo
     <form action="/upload" method="post" enctype="multipart/form-data">
 
         <!-- Zona de subida de archivo -->
+         <div class="centrar">
         <label> 📁 Selecciona un archivo CSV:</label><br>
         <input placeholder="Subir" class="button" type="file"  name="archivo_csv" id="archivo_csv" accept=".csv, .xlsx" required><br><br>
+         </div>
 
 
 
 
+   <div class="centrar">
         <!-- Selección de año -->
         <label for="anio">Año:</label>
         <select name="anio" id="anio">
@@ -44,6 +47,9 @@ Subir archivo
         </select><br><br>
 
         <!-- Selección de mes -->
+      
+
+      
         <label for="mes">Mes:</label>
         <select name="mes" id="mes">
             <option value="1">(1) Enero</option>
@@ -59,9 +65,13 @@ Subir archivo
             <option value="11">(11) Noviembre</option>
             <option value="12">(12) Diciembre</option>
         </select><br><br>
-
+   </div>
         <!-- Botón para enviar -->
+
+        <div class="centrar">
         <button class="buttonga" type="submit">Procesar</button>
+        </div>
+
     </form>
 
     {% set mensajes = get_flashed_messages() %}

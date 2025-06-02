@@ -19,6 +19,7 @@ Base de datos
         <select name="anio" id="anio">
             <option value="">-- Selecciona un año --</option>
             {% for anio in range(2022, 2031) %}
+
             <option value="{{ anio }}" {% if request.args.get('anio') == anio|string %}selected{% endif %}>{{ anio }}</option>
             {% endfor %}
         </select>
