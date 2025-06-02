@@ -169,10 +169,14 @@ mask-composite: xor;
 
 .centrar{
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 .centrar2{
   display: flex;
   flex-direction: row;
  justify-content: space-around;
+}
+.centrar3{
+  text-align: center;
+  margin-bottom: 80px;
 }
