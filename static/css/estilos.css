@@ -141,6 +141,9 @@ main p{
 
   h2, p { margin-top: 0.2em }
 }
+.container.red{
+  --container-color: crimson;
+}
 .container.blue{
   --container-color: rgb(57, 57, 243);
 }
@@ -148,8 +151,9 @@ main p{
   --container-color: green;
 }
 .container.orange{
-  --contanier-color: orange;
+  --container-color: orange;
 }
+
 
 @media(max-width: 800px){
   body{
