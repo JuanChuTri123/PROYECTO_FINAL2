@@ -5,7 +5,7 @@ select,
 
 select {
   background-color: rgb(0, 6, 12);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
   width: 140px;
   font-size: 20px;
   font-weight: bold;
