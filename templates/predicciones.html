@@ -7,30 +7,30 @@ Predicciones
 {% block content %}
 
 <head>
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
 </head>
 <div class="card yellow">
-<h2 class="titulopred">Predicciones</h2>
+  <h2 class="titulopred">Predicciones</h2>
 </div>
 
 <div class="container yellow">
 
-<!-- Mensajes flash -->
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<p style="color: white;">{{ messages[0] }}</p>
-{% endif %}
-{% endwith %}
+  <!-- Mensajes flash -->
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <p style="color: white;">{{ messages[0] }}</p>
+  {% endif %}
+  {% endwith %}
 
-<form method="POST" action="/procesar">
+  <form method="POST" action="/procesar">
     <label for="anio">Año:</label>
     <select name="anio" required>
       {% for y in range(2025, 2031) %}
 
-        <option value="{{ y }}">{{ y }}</option>
+      <option value="{{ y }}">{{ y }}</option>
       {% endfor %}
     </select>
-  </br>
+    </br>
     <label for="trimestre">Trimestre:</label>
     <select name="trimestre" required>
       <option value="01">I (Ene-Mar)</option>
@@ -38,7 +38,7 @@ Predicciones
       <option value="07">III (Jul-Sep)</option>
       <option value="10">IV (Oct-Dic)</option>
     </select>
-  
+
     <button type="submit">Procesar</button>
   </form>
 
@@ -49,26 +49,30 @@ Predicciones
   </form>
   {% endif %}
 
- <h3>Tabla de predicciones por año</h3>
 
-<form id="form-anio" method="get" action="{{ url_for('sidebar.predicciones') }}">
-    <label for="anio">Seleccionar año:</label>
-    <select name="anio" id="anio" onchange="this.form.submit()">
-        <option value="">-- Selecciona un año --</option>
-        {% for y in range(2025, 2031) %}
-        <option value="{{ y }}" {% if anio == y %}selected{% endif %}>{{ y }}</option>
-        {% endfor %}
-    </select>
-</form>
 
-<div style="margin-top: 20px;">
-    {{ tabla|safe }}
+
 </div>
 
+<div class="container yellow">
+  <h3>Tabla de predicciones por año</h3>
 
-  
+  <form id="form-anio" method="get" action="{{ url_for('sidebar.predicciones') }}">
+    <label for="anio">Seleccionar año:</label>
+    <select name="anio" id="anio" onchange="this.form.submit()">
+      <option value="">-- Selecciona un año --</option>
+      {% for y in range(2025, 2031) %}
+      <option value="{{ y }}" {% if anio==y %}selected{% endif %}>{{ y }}</option>
+      {% endfor %}
+    </select>
+  </form>
 
-  
+  <div style="margin-top: 20px;">
+    {{ tabla|safe }}
+  </div>
+
+</div>
+
 {% endblock %}
-  
+
 </div>
