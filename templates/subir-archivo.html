@@ -32,9 +32,10 @@ Subir archivo
 
 
 
-   <div class="centrar">
+   <div class="centrar2">
         <!-- Selección de año -->
-        <label for="anio">Año:</label>
+         <div class="aniosdiv">
+                    <label for="anio" style="font-weight: bold; font-size: 20px;" >Año:</label>
         <select name="anio" id="anio">
             <option value="2022">2022</option>
             <option value="2023">2023</option>
@@ -44,12 +45,14 @@ Subir archivo
             <option value="2027">2027</option>
             <option value="2028">2028</option>
         </select><br><br>
+         </div>
+
 
         <!-- Selección de mes -->
       
 
-      
-        <label for="mes">Mes:</label>
+      <div class="mesesdiv">
+        <label for="mes"  style="font-weight: bold; font-size: 20px;">Mes:</label>
         <select name="mes" id="mes">
             <option value="1">(1) Enero</option>
             <option value="2">(2) Febrero</option>
@@ -64,6 +67,8 @@ Subir archivo
             <option value="11">(11) Noviembre</option>
             <option value="12">(12) Diciembre</option>
         </select><br><br>
+      </div>
+        
    </div>
         <!-- Botón para enviar -->
 
@@ -82,7 +87,7 @@ Subir archivo
     {% endif %}
 
     {% if meses_faltantes %}
-    <div style="margin-top: 20px; padding: 10px; background-color: #333; border-left: 5px solid #007BFF;">
+    <div style="margin-top: 20px; padding: 10px; background-color: #333; border-left: 5px solid crimson;">
         <h4>Meses pendientes por subir datos reales:</h4>
         <ul>
             {% for anio, mes in meses_faltantes %}
