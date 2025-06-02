@@ -9,10 +9,10 @@ Base de datos
 <head>
      <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
 </head>
-<div class="container">
+<div class="card lightblue">
     <h2 class="titulobd">Tabla de Consumo Histórico</h2>
 </div>
-<div class="container">
+<div class="container lightblue">
 
     <form id="form-anio" action="{{ url_for('tablas.mostrar_tabla') }}" method="get">
         <label for="anio">Seleccionar año:</label>
