@@ -66,3 +66,11 @@ h3 {
 .card.red{
   --card-color: crimson; 
 }
+
+.card.lightblue{
+  --card-color: rgb(63, 190, 233); 
+}
+
+.card.yellow{
+  --card-color: rgb(225, 240, 22);
+}
