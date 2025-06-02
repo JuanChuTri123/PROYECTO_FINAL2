@@ -53,7 +53,7 @@ h3 {
   }
 }
 .card.red {
-  --card-color: blue;
+  --card-color: rgb(57, 57, 243);
 }
 .card.green {
   --card-color: lime;
