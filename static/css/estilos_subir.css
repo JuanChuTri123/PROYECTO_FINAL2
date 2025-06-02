@@ -111,7 +111,7 @@ mask-composite: xor;
   pointer-events: none;
 }
 
-.btn {
+.btn{
  text-align: center;
  background-color: #3f0c83;
  padding: 14px 40px;
@@ -150,7 +150,7 @@ mask-composite: xor;
   background: #c20d0d;
   justify-content: center;
   align-items: center;
-  box-shadow: -5px -5px 15px #6e0404, 5px 5px 15px #222, inset 5px 5px 10px #db1717,
+  box-shadow: -5px -5px 15px crimson, 5px 5px 15px #222, inset 5px 5px 10px rgb(245, 86, 118),
     inset -5px -5px 10px #4e1313;
   font-family: "Damion", cursive;
   cursor: pointer;
