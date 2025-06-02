@@ -17,3 +17,6 @@ select:hover{
 select option::checkmark{
     order:1;
 }
+select option::checkmark{
+    content: "👈🏼";
+}
