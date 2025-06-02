@@ -52,7 +52,7 @@ h3 {
     --angle: 360deg;
   }
 }
-.card.red {
+.card.blue {
   --card-color: rgb(57, 57, 243);
 }
 .card.green {
@@ -63,6 +63,6 @@ h3 {
   --card-color: orange;
 }
 
-.card.card.blue{
+.card.red{
   --card-color: crimson; 
 }
