@@ -1,0 +1,16 @@
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+select {
+  background-color: rgb(0, 6, 12);
+  transition: background-color 0.3s ease;
+  width: 130px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+select:hover{
+    background-color: crimson;
+}
