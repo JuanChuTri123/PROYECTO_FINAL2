@@ -94,7 +94,7 @@ text-align: center;
   inset: 0;
   background: linear-gradient(
       180deg,
-      rgba(184, 238, 255, 0.24) 0%,
+      rgba(26, 190, 240, 0.616) 0%,
       rgba(184, 238, 255, 0) 100%
     ),
     linear-gradient(0deg, rgba(184, 238, 255, 0.32), rgba(184, 238, 255, 0.32));
@@ -146,22 +146,26 @@ mask-composite: xor;
   height: 50px;
   width: 120px;
   border-radius: 10px;
-  background: #333;
+  background: #c20d0d;
   justify-content: center;
   align-items: center;
-  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
-    inset -5px -5px 10px #222;
+  box-shadow: -5px -5px 15px #6e0404, 5px 5px 15px #222, inset 5px 5px 10px #4e1313,
+    inset -5px -5px 10px #4e1313;
   font-family: "Damion", cursive;
   cursor: pointer;
   border: none;
   font-size: 16px;
-  color: rgb(161, 161, 161);
+  color: rgb(0, 0, 0);
   transition: 500ms;
 }
 
 .buttonga:hover {
-  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222,
-    inset -5px -5px 10px #444;
-  color: #d6d6d6;
+  box-shadow: -5px -5px 15px #e93103, 5px 5px 15px #ff0000, inset 5px 5px 10px #e93103,
+    inset -5px -5px 10px #ff0000;
+  color: #000000;
   transition: 500ms;
+}
+
+.centrar{
+  text-align: center;
 }

@@ -62,3 +62,7 @@ h3 {
 .card.orange {
   --card-color: orange;
 }
+
+.card.card.blue{
+  --card-color: crimson; 
+}
