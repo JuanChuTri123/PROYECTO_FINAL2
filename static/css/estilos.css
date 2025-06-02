@@ -153,6 +153,13 @@ main p{
 .container.orange{
   --container-color: orange;
 }
+.container.lightblue{
+  --container-color: rgb(63, 190, 233);
+}
+.container.yellow{
+  --container-color: rgb(225, 240, 22);
+}
+
 
 
 @media(max-width: 800px){
