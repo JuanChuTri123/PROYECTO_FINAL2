@@ -134,12 +134,21 @@ main p{
   margin-bottom: 15px;
 }
 .container{
-  border: 1px solid var(--line-clr);
+  border: 2px solid var(--container-color);
   border-radius: 1em;
   margin-bottom: 20px;
   padding: min(3em, 15%);
 
   h2, p { margin-top: 0.2em }
+}
+.container.blue{
+  --container-color: rgb(57, 57, 243);
+}
+.container.green{
+  --container-color: green;
+}
+.container.orange{
+  --contanier-color: orange;
 }
 
 @media(max-width: 800px){
