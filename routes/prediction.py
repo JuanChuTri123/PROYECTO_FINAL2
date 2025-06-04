@@ -2,7 +2,6 @@ from flask import Blueprint, request, render_template, redirect, flash
 import os
 import pandas as pd
 from flask import session
-import pandas as pd
 from prophet import Prophet
 
 predict = Blueprint('prediction', __name__)
