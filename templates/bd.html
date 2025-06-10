@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Base de datos
+Consumos totales
 {% endblock %}
 
 {% block content %}
@@ -15,8 +15,8 @@ Base de datos
 <div class="container lightblue">
 
     <form id="form-anio" action="{{ url_for('tablas.mostrar_tabla') }}" method="get">
-        <label for="anio" style="font-weight: bold; font-size: 20px;">Seleccionar año:</label>
-        <select name="anio" id="anio">
+        <label for="anio2" style="font-weight: bold; font-size: 20px;">Seleccionar año:</label>
+        <select class="select-2" name="anio" id="anio">
             <option value="">- Año -</option>
             {% for anio in range(2022, 2031) %}
 
