@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilostablas.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_inicio.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
-   
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/select.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}" defer></script>
     <title>{% block title %}Inicio{% endblock %}</title>
 </head>
@@ -68,7 +68,7 @@
                 <ul class="sub-menu">
                     <div>
                         <li><a href="{{ url_for('sidebar.subir_archivo') }}">Subir archivo</a></li>
-                        <li><a href="{{ url_for('sidebar.bd') }}">Base de datos</a></li>
+                        <li><a href="{{ url_for('sidebar.bd') }}">Consumos totales</a></li>
                         <li><a href="{{ url_for('sidebar.predicciones') }}">Iniciar prediccion</a></li>
                     </div>
 
