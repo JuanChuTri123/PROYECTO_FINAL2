@@ -24,7 +24,7 @@ def procesar():
 
         # Validar si existen valores vacíos
         if df_pred.isnull().values.any():
-            flash("❌ Hay valores vacíos en PrediccionHuarazTotal.csv. Revíselos antes de continuar.")
+            flash("❌ Hay valores vacíos por completar!. Revíselos antes de continuar.")
             return redirect('/Prediccion')
 
         # Validar si ya existe predicción para ese trimestre
