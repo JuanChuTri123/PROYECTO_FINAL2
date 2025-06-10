@@ -39,8 +39,6 @@ def subir_archivo():
 
     return render_template('subir-archivo.html', puede_subir=puede_subir, meses_faltantes=meses_faltantes)
 
-
-
 @sidebar.route('/BaseDatos')
 def bd():
     return render_template('bd.html')
