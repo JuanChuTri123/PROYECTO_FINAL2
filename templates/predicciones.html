@@ -34,7 +34,7 @@ Predicciones
       </div>
 
       <div class="mesesdiv">
-        <label class="label-all" for="trimestre" >Trimestre:</label>
+        <label class="label-all" for="trimestre">Trimestre:</label>
         <select class="select-3" name="trimestre" required style="width: 170px;">
           <option value="01">I (Ene-Mar)</option>
           <option value="04">II (Abr-Jun)</option>
@@ -53,7 +53,9 @@ Predicciones
   {% set mensajes = get_flashed_messages() %}
   {% if '✅ Proceso completado, prosiga a predecir' in mensajes %}
   <form method="POST" action="/predecir">
-    <button type="submit">Predecir y guardar</button>
+    <div class="centrar3">
+      <button class="buttonga predecir" type="submit">Predecir y guardar</button>
+    </div>
   </form>
   {% endif %}
 
@@ -71,11 +73,11 @@ Predicciones
     </select>
   </form>
 
-<div style="margin-top: 20px;">
-  <div style="display: inline-block;">
-    {{ tabla|safe }}
+  <div style="margin-top: 20px;">
+    <div style="display: inline-block;">
+      {{ tabla|safe }}
+    </div>
   </div>
-</div>
 
 </div>
 
