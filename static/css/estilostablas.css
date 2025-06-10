@@ -1,6 +1,5 @@
-
 /* CSS para la tabla de DataHistorica */
-.mi-tabla {
+.mi-tabla,.tabla-predicciones {
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
@@ -12,12 +11,17 @@
     padding: 4px;
     text-align: center;
 }
+.tabla-predicciones th, .tabla-predicciones td {
+    border: 1px solid #ddd;
+    padding: 4px;
+    text-align: center;
+}
 
-.mi-tabla th {
+.mi-tabla th,.tabla-predicciones th {
     background-color: #333;
     color: #ddd;
 }
 
-.mi-tabla tr:nth-child(even) {
+.mi-tabla tr:nth-child(even),.tabla-predicciones tr:nth-child(even) {
     background-color: #333;
 }
