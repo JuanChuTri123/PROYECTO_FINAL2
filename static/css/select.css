@@ -1,9 +1,9 @@
-select,
+.select-1,.select-2,.select-3,
 ::picker(select) {
   appearance: base-select;
 }
 
-select {
+.select-1,.select-2,.select-3 {
   background-color: rgb(0, 6, 12);
   transition: background-color 0.2s ease;
   width: 140px;
@@ -11,12 +11,19 @@ select {
   font-weight: bold;
 }
 
-select:hover{
+.select-1:hover{
     background-color: crimson;
 }
-select option::checkmark{
+.select-2:hover{
+    background-color: rgb(92, 154, 196);
+}
+.select-3:hover{
+    background-color: rgb(179, 176, 4);
+}
+
+.select-1,.select-2,.select-3, option::checkmark{
     order:1;
 }
-select option::checkmark{
+.select-1,.select-2,.select-3, option::checkmark{
     content: "👈🏼";
 }
