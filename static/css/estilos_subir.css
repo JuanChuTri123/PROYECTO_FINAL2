@@ -116,7 +116,13 @@ text-align: center;
   --boxshadow2-boton:rgb(228, 240, 63);
   --boxshadow3-boton:#5b610b;
 }
-
+.buttonga.predecir{
+  --color-boton: #3ef338;
+  --ancho-boton: 180px;
+  --boxshadow1-boton:rgb(45, 206, 144);
+  --boxshadow2-boton:rgb(82, 240, 19);
+  --boxshadow3-boton:#055817;
+}
 .buttonga.procesar:hover {
   box-shadow: -5px -5px 15px #b13313, 5px 5px 15px #9e2121, inset 5px 5px 10px #e93103,
     inset -5px -5px 10px #a82424;
@@ -135,7 +141,12 @@ text-align: center;
   color: #000000;
   transition: 350ms;
 }
-
+.buttonga.predecir:hover {
+  box-shadow: -5px -5px 15px #1ece4a, 5px 5px 15px #35c961, inset 5px 5px 10px #4cf122,
+    inset -5px -5px 10px #3ad834;
+  color: #000000;
+  transition: 350ms;
+}
 .centrar{
   text-align: center;
   margin-bottom: 10px;
