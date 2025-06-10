@@ -224,13 +224,13 @@ def filtrar_datos():
                         df_pred_uno.at[idx, "CONSUMO_REAL_KWH"] = real
                         df_pred_uno.at[idx, "MARGEN_ERROR(MAPE)"] = round(mape, 2)
                         df_pred_uno.to_csv(pred_uno_path, sep=";", index=False, encoding="utf-8-sig")
-                        flash(f"✅ Se actualizó el consumo real y el MAPE ({round(mape, 2)}%) en PrediccionHuarazTotal.csv", "success")
+                        flash(f"✅ Se actualizó el consumo real y el MAPE ({round(mape, 2)}%) ", "success")
                     else:
                         flash("⚠️ El consumo real es cero, no se puede calcular el MAPE", "warning")
                 except Exception as e:
                     flash(f"⚠️ Error al calcular MAPE: {str(e)}", "warning")
             else:
-                flash("⚠️ No se encontró una predicción previa para este mes en PrediccionHuarazTotal.csv", "warning")
+                flash("⚠️ No se encontró una predicción previa para este mes", "warning")
 
         # Eliminar archivos temporales
         for temp_path in ["DataFiltrada.csv", "DataTemporal.csv"]:
