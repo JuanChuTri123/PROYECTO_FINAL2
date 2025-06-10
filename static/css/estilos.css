@@ -234,3 +234,7 @@ main p{
   }
 }
        
+.label-all{
+  font-weight: bold;
+  font-size: 20px;
+}
