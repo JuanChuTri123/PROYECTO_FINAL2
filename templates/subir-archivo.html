@@ -5,14 +5,12 @@ Subir archivo
 {% endblock %}
 
 {% block content %}
-<head>
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/select.css') }}">
-</head>
-<div class="card red"> 
+
+<div class="card red">
     <h2 class="titulo1_subir">Subir archivo de consumo energético</h2>
 </div>
 <div class="container red">
-   
+
     <!-- Mensajes flash -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -22,59 +20,52 @@ Subir archivo
 
     <!-- Se activa el poder subir archivos solo cuando detecte que ya predijo -->
     {% if puede_subir %}
-
     <form action="/upload" method="post" enctype="multipart/form-data">
 
         <!-- Zona de subida de archivo -->
-         <div class="centrar">
-        <label> 📁 Selecciona un archivo CSV:</label><br>
-        <input placeholder="Subir" class="button" type="file"  name="archivo_csv" id="archivo_csv" accept=".csv, .xlsx" required><br><br>
-         </div>
+        <div class="centrar">
+            <label> 📁 Selecciona un archivo CSV:</label><br>
+            <input placeholder="Subir" class="subida" type="file" name="archivo_csv" id="archivo_csv"
+                accept=".csv, .xlsx" required><br><br>
+        </div>
 
+        <div class="centrar2">
+            <!-- Selección de año -->
+            <div class="aniosdiv">
+                <label for="anio2" class="label-all">Año:</label>
+                <select class="select-1 red" name="anio" id="anio">
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                </select><br><br>
+            </div>
 
-
-
-   <div class="centrar2">
-        <!-- Selección de año -->
-         <div class="aniosdiv">
-                    <label for="anio" style="font-weight: bold; font-size: 20px;" >Año:</label>
-        <select name="anio" id="anio">
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-            <option value="2026">2026</option>
-            <option value="2027">2027</option>
-            <option value="2028">2028</option>
-        </select><br><br>
-         </div>
-
-
-        <!-- Selección de mes -->
-      
-
-      <div class="mesesdiv">
-        <label for="mes"  style="font-weight: bold; font-size: 20px;">Mes:</label>
-        <select name="mes" id="mes">
-            <option value="1">(1) Enero</option>
-            <option value="2">(2) Febrero</option>
-            <option value="3">(3) Marzo</option>
-            <option value="4">(4) Abril</option>
-            <option value="5">(5) Mayo</option>
-            <option value="6">(6) Junio</option>
-            <option value="7">(7) Julio</option>
-            <option value="8">(8) Agosto</option>
-            <option value="9">(9) Septiembre</option>
-            <option value="10">(10) Octubre</option>
-            <option value="11">(11) Noviembre</option>
-            <option value="12">(12) Diciembre</option>
-        </select><br><br>
-      </div>
-        
-   </div>
+            <!-- Selección de mes -->
+            <div class="mesesdiv">
+                <label for="mes2" class="label-all">Mes:</label>
+                <select class="select-1 red" name="mes" id="mes" style="width:200px;">
+                    <option value="1">(1) Enero</option>
+                    <option value="2">(2) Febrero</option>
+                    <option value="3">(3) Marzo</option>
+                    <option value="4">(4) Abril</option>
+                    <option value="5">(5) Mayo</option>
+                    <option value="6">(6) Junio</option>
+                    <option value="7">(7) Julio</option>
+                    <option value="8">(8) Agosto</option>
+                    <option value="9">(9) Septiembre</option>
+                    <option value="10">(10) Octubre</option>
+                    <option value="11">(11) Noviembre</option>
+                    <option value="12">(12) Diciembre</option>
+                    </select><br><br>
+            </div>
+        </div>
         <!-- Botón para enviar -->
         <div class="centrar3">
-        <button class="buttonga" type="submit">Procesar</button>
+            <button class="buttonga procesar" type="submit">Procesar</button>
         </div>
 
     </form>
@@ -83,7 +74,10 @@ Subir archivo
     {% if '✅ Todo correcto, proceda a guardar!' in mensajes
     or '⚠️ El archivo con ese año y mes ya existe. Si continúa lo reemplazará!' in mensajes %}
     <form action="/filtrar" method="post">
-        <button type="submit">➡️ Filtrar y guardar)</button>
+        <div class="centrar3">
+            <button class="buttonga filtrar" type="submit">➡️ Filtrar y guardar)</button>
+        </div>
+
     </form>
     {% endif %}
 
