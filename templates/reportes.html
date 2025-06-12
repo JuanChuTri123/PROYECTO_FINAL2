@@ -8,5 +8,44 @@ Reportes
 <div class="card orange">
     <h2>Reportes</h2>
 </div>
+<div class="container orange">
+    <h2>Reporte de Consumo Energético</h2>
 
+    <form action="/generar_reporte" method="POST">
+        <label for="anio">Selecciona el año:</label>
+        <select name="anio" id="anio" required>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+        </select>
+        <button type="submit">Generar</button>
+    </form>
+
+    {% if registros %}
+    <h3>Resultados para el año {{ anio }}</h3>
+    <table border="1">
+        <tr>
+            <th>Mes</th>
+            <th>Predicción (kWh)</th>
+            <th>Consumo Real (kWh)</th>
+            <th>MAPE (%)</th>
+            <th>Clasificación</th>
+            <th>Descargar</th>
+        </tr>
+        {% for row in registros %}
+        <tr>
+            <td>{{ row['MES'] }}</td>
+            <td>{{ row['PREDICCION_KWH'] }}</td>
+            <td>{{ row['CONSUMO_REAL_KWH'] }}</td>
+            <td>{{ row['MARGEN_ERROR(MAPE)'] }}</td>
+            <td>{{ row['CLASIFICACION'] }}</td>
+            <td>
+              <a href="{{ url_for('reportes.descargar_reporte', anio=row['ANIO'], mes=row['MES']) }}">Descargar PDF</a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
 {% endblock %}
