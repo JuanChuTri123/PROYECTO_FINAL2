@@ -59,3 +59,7 @@ def predicciones():
 @sidebar.route('/Reportes')
 def reportes():
     return render_template('reportes.html')
+
+@sidebar.route('/Dashboard')
+def dashboard():
+    return render_template('dashboard.html')
