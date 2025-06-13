@@ -165,6 +165,9 @@ main p{
 .container.yellow{
   --container-color: rgb(225, 240, 22);
 }
+.container.purple{
+  --container-color: rgb(103, 94, 233);
+}
 
 
 
