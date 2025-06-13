@@ -25,6 +25,7 @@ app.register_blueprint(bds, url_prefix='/tablaHuaraz')
 # Registro de blueprint para los reportes
 app.register_blueprint(report)
 
+# Registro de blueprint para el dashboard
 app.register_blueprint(dashboard)
 
 if __name__=="__main__":
