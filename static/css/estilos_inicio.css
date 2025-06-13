@@ -74,3 +74,6 @@ h3 {
 .card.yellow{
   --card-color: rgb(225, 240, 22);
 }
+.card.purple{
+  --card-color: rgb(103, 94, 233);
+}
