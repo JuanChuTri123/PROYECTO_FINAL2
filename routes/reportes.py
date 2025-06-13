@@ -28,7 +28,7 @@ def generar_reporte():
             return "Excelente precisión"
         elif mape <= 10:
             return "Aceptable"
-        elif mape <= 15:
+        elif mape <= 20:
             return "Regular"
         else:
             return "Bajísima precisión"
@@ -63,15 +63,15 @@ def descargar_reporte(anio, mes):
         conclusion = (
             "La predicción es razonablemente confiable, con un margen de error aceptable. Puede utilizarse en decisiones operativas con cierta seguridad."
         )
-    elif mape <= 15:
+    elif mape <= 20:
         clasificacion = "Regular"
         conclusion = (
-            "El modelo presenta un nivel de error moderado. Se recomienda precaución al usar estas predicciones, especialmente para decisiones críticas."
+            "El modelo presenta un nivel de error considerable. Se recomienda precaución al usar estas predicciones, especialmente para decisiones críticas. Este tipo de margen de error puede deber a temas administrativos o relacionado con la subida de los datos de este mes."
         )
     else:
         clasificacion = "Bajísima precisión"
         conclusion = (
-            "La predicción difiere considerablemente del consumo real, lo que limita su confiabilidad. Es necesario revisar el modelo y considerar ajustes."
+            "La predicción difiere mucho del consumo real, lo que limita su confiabilidad. Es necesario revisar los datos subidos o en caso extremo verificar el modelo predictivo utilizado."
         )
 
 
@@ -101,8 +101,8 @@ def descargar_reporte(anio, mes):
         sectores = [
             (0, 5, 'lime', 'Excelente'),
             (5, 10, 'yellow', 'Aceptable'),
-            (10, 15, 'orange', 'Regular'),
-            (15, 100, 'red', 'Bajísima')
+            (10, 20, 'orange', 'Regular'),
+            (20, 100, 'red', 'Bajísima')
         ]
 
         for start, end, color, label in sectores:
