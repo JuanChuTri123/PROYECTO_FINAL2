@@ -31,6 +31,16 @@ function closeAllSubMenus(){
 }
 
 
+  const links = document.querySelectorAll('#sidebar ul li a');
+  const currentURL = window.location.href;
+
+  links.forEach(link => {
+    if (link.href === currentURL) {
+      link.parentElement.classList.add('active');
+    } else {
+      link.parentElement.classList.remove('active');
+    }
+  });
 
 document.addEventListener("DOMContentLoaded", function () {
     const select = document.getElementById("anio");
