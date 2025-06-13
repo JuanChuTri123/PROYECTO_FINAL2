@@ -9,8 +9,6 @@ Reportes
     <h2>Reportes</h2>
 </div>
 <div class="container orange">
-    <h2>Reporte de Consumo Energético</h2>
-    <br>
     <form action="/generar_reporte" method="POST">
         <div class="centrar">
 
@@ -29,6 +27,7 @@ Reportes
     <br>
     {% if registros %}
     <h3>Resultados para el año {{ anio }}</h3>
+    <br>
     <div style="display: flex; justify-content: center;">
         <table border="1">
             <tr>
