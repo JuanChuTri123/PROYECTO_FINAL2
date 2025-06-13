@@ -116,16 +116,8 @@ def upload_csv():
 def filtrar_datos():
     try:
         ruta_csv = os.path.join("static", "data", "DataTemporal.csv")
-        if not os.path.exists(ruta_csv):
-            flash("❌ No se encontró el archivo para filtrar", "danger")
-            return redirect("/subir-archivo")
-
+        
         df = pd.read_csv(ruta_csv, sep=";", encoding="utf-8")
-
-        if 'PROVINCIA' not in df.columns or 'DISTRITO' not in df.columns or 'CONSUMO' not in df.columns:
-            flash("❌ El archivo no contiene las columnas necesarias (PROVINCIA, DISTRITO, CONSUMO)", "danger")
-            return redirect("/subir-archivo")
-
         df_huaraz = df[df["PROVINCIA"].str.upper().str.strip() == "HUARAZ"]
 
         if df_huaraz.empty:
@@ -224,7 +216,7 @@ def filtrar_datos():
                         df_pred_uno.at[idx, "CONSUMO_REAL_KWH"] = real
                         df_pred_uno.at[idx, "MARGEN_ERROR(MAPE)"] = round(mape, 2)
                         df_pred_uno.to_csv(pred_uno_path, sep=";", index=False, encoding="utf-8-sig")
-                        flash(f"✅ Se actualizó el consumo real y el MAPE ({round(mape, 2)}%) ", "success")
+                        flash(f"✅ Se subió correctamente el consumo real!!", "success")
                     else:
                         flash("⚠️ El consumo real es cero, no se puede calcular el MAPE", "warning")
                 except Exception as e:
