@@ -5,14 +5,14 @@ Dashboard
 {% endblock %}
 
 {% block content %}
-<div class="card red">
+<div class="card purple">
     <h2 class="titulopred">Dashboard de consumos totales</h2>
 </div>
 
-<div class="container red">
+<div class="container purple">
 <form method="get" id="anioForm" action="{{ url_for('dashboard.consumo_dashboard') }}">
   <label class="label-all" for="anio">Seleccionar año:</label>
-  <select class="select-1" name="anio" id="anio" onchange="document.getElementById('anioForm').submit()" style="width: 220px;">
+  <select class="select-5" name="anio" id="anio" onchange="document.getElementById('anioForm').submit()" style="width: 220px;">
     {% for anio in range(2022, 2031) %}
       <option value="{{ anio }}" {% if anio == anio_seleccionado %}selected{% endif %}>{{ anio }}</option>
     {% endfor %}
