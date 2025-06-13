@@ -117,11 +117,18 @@ text-align: center;
   --boxshadow3-boton:#5b610b;
 }
 .buttonga.predecir{
-  --color-boton: #3ef338;
+  --color-boton: #38f832;
   --ancho-boton: 180px;
   --boxshadow1-boton:rgb(45, 206, 144);
   --boxshadow2-boton:rgb(82, 240, 19);
   --boxshadow3-boton:#055817;
+}
+.buttonga.generar{
+  --color-boton: #f3b838;
+  --ancho-boton: 140px;
+  --boxshadow1-boton:rgb(206, 150, 45);
+  --boxshadow2-boton:rgb(240, 163, 19);
+  --boxshadow3-boton:#583e05;
 }
 .buttonga.procesar:hover {
   box-shadow: -5px -5px 15px #b13313, 5px 5px 15px #9e2121, inset 5px 5px 10px #e93103,
@@ -147,9 +154,14 @@ text-align: center;
   color: #000000;
   transition: 350ms;
 }
+.buttonga.generar:hover {
+  box-shadow: -5px -5px 15px #ceb41e, 5px 5px 15px #c9a235, inset 5px 5px 10px #f1a922,
+    inset -5px -5px 10px #d8a434;
+  color: #000000;
+  transition: 350ms;
+}
 .centrar{
   text-align: center;
-  margin-bottom: 10px;
 }
 .centrar2{
   display: flex;
