@@ -47,9 +47,8 @@ Reportes
                 <td>{{ row['MARGEN_ERROR(MAPE)'] }}</td>
                 <td>{{ row['CLASIFICACION'] }}</td>
                 <td>
-                    <a href="{{ url_for('reportes.descargar_reporte', anio=row['ANIO'], mes=row['MES']) }}">Descargar
+                    <a style="color:rgb(248, 193, 91)" href="{{ url_for('reportes.descargar_reporte', anio=row['ANIO'], mes=row['MES']) }}">Descargar
                         PDF</a>
-
                 </td>
             </tr>
             {% endfor %}
