@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="card red">
+    <h2 class="titulopred">Dashboard de consumos totales</h2>
+</div>
+
+<div class="container red">
+<form method="get" id="anioForm" action="{{ url_for('dashboard.consumo_dashboard') }}">
+  <label class="label-all" for="anio">Seleccionar año:</label>
+  <select class="select-1" name="anio" id="anio" onchange="document.getElementById('anioForm').submit()" style="width: 220px;">
+    {% for anio in range(2022, 2031) %}
+      <option value="{{ anio }}" {% if anio == anio_seleccionado %}selected{% endif %}>{{ anio }}</option>
+    {% endfor %}
+  </select>
+</form>
+
+<div style="margin-top: 20px;">
+  {{ grafico_html|safe }}
+</div>
+</div>
+
+{% endblock %}
