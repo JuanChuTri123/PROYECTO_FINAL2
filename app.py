@@ -1,9 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask
 from routes.rutas_sidebar import sidebar  # importa el blueprint
 from routes.upload import upload_bp  # Importamos el blueprint de subida
 from routes.prediction import predict  # Importamos el blueprint de prediccioness
 from routes.tablas import bds  # Importamos el blueprint de las tablas de bd
 from routes.reportes import report  # Importamos el blueprint de las tablas de bd
+from routes.dashboard import dashboard
 app = Flask(__name__)
 
 # Clave secreta para poder usar mensajes flash (como notificaciones de error o éxito)
@@ -24,6 +25,7 @@ app.register_blueprint(bds, url_prefix='/tablaHuaraz')
 # Registro de blueprint para los reportes
 app.register_blueprint(report)
 
+app.register_blueprint(dashboard)
 
 if __name__=="__main__":
     app.run(
