@@ -10,42 +10,54 @@ Reportes
 </div>
 <div class="container orange">
     <h2>Reporte de Consumo Energético</h2>
-
+    <br>
     <form action="/generar_reporte" method="POST">
-        <label for="anio">Selecciona el año:</label>
-        <select name="anio" id="anio" required>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-        </select>
-        <button type="submit">Generar</button>
-    </form>
+        <div class="centrar">
 
+            <label class="label-all" for="anio">Selecciona el año:</label>
+            <select class="select-4" name="anio" id="anios" required>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+            </select>
+
+            <button class="buttonga generar" type="submit" style="margin-left: 50px;">Generar</button>
+
+        </div>
+    </form>
+    <br>
     {% if registros %}
     <h3>Resultados para el año {{ anio }}</h3>
-    <table border="1">
-        <tr>
-            <th>Mes</th>
-            <th>Predicción (kWh)</th>
-            <th>Consumo Real (kWh)</th>
-            <th>MAPE (%)</th>
-            <th>Clasificación</th>
-            <th>Descargar</th>
-        </tr>
-        {% for row in registros %}
-        <tr>
-            <td>{{ row['MES'] }}</td>
-            <td>{{ row['PREDICCION_KWH'] }}</td>
-            <td>{{ row['CONSUMO_REAL_KWH'] }}</td>
-            <td>{{ row['MARGEN_ERROR(MAPE)'] }}</td>
-            <td>{{ row['CLASIFICACION'] }}</td>
-            <td>
-              <a href="{{ url_for('reportes.descargar_reporte', anio=row['ANIO'], mes=row['MES']) }}">Descargar PDF</a>
+    <div style="display: flex; justify-content: center;">
+        <table border="1">
+            <tr>
+                <th>Mes</th>
+                <th>Predicción (kWh)</th>
+                <th>Consumo Real (kWh)</th>
+                <th>MAPE (%)</th>
+                <th>Clasificación</th>
+                <th>Descargar</th>
+            </tr>
+            {% for row in registros %}
+            <tr>
+                <td>{{ row['MES'] }}</td>
+                <td>{{ row['PREDICCION_KWH'] }}</td>
+                <td>{{ row['CONSUMO_REAL_KWH'] }}</td>
+                <td>{{ row['MARGEN_ERROR(MAPE)'] }}</td>
+                <td>{{ row['CLASIFICACION'] }}</td>
+                <td>
+                    <a href="{{ url_for('reportes.descargar_reporte', anio=row['ANIO'], mes=row['MES']) }}">Descargar
+                        PDF</a>
 
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
     {% endif %}
 </div>
 {% endblock %}
