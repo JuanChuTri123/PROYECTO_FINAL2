@@ -13,6 +13,7 @@ Dashboard
 <form method="get" id="anioForm" action="{{ url_for('dashboard.consumo_dashboard') }}">
   <label class="label-all" for="anio">Seleccionar año:</label>
   <select class="select-5" name="anio" id="anio" onchange="document.getElementById('anioForm').submit()" style="width: 220px;">
+    <option value="">- Año -</option>
     {% for anio in range(2022, 2031) %}
       <option value="{{ anio }}" {% if anio == anio_seleccionado %}selected{% endif %}>{{ anio }}</option>
     {% endfor %}
