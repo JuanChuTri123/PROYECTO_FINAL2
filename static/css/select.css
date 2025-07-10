@@ -7,7 +7,7 @@
   background-color: rgb(0, 6, 12);
   transition: background-color 0.2s ease;
   width: 140px;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
 }
 
@@ -31,5 +31,5 @@
     order:1;
 }
 .select-1,.select-2,.select-3,.select-4,.select-5, option::checkmark{
-    content: "👈🏼";
+    content: "✅";
 }
