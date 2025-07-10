@@ -53,20 +53,21 @@ body{
     font-weight: 600;
   }
 }
-/* #sidebar ul li.active a{
+#sidebar ul li.active a{
   color: var(--accent-clr);
 
   svg{
     fill: var(--accent-clr);
   }
-} */
-#sidebar ul li.active a{
+}
+ 
+/* #sidebar ul li.active a{
   color: #efebe6;
 
   svg{
     fill: #efebe6;
   }
-}
+} */
 #sidebar a, #sidebar .dropdown-button, #sidebar .logo{
   border-radius: .5em;
   padding: .85em;
