@@ -90,6 +90,7 @@ def predecir():
 
     # Cerrar figura para evitar warnings si haces varias
     plt.close(fig)
+    
     pred_trimestre = forecast[['ds', 'yhat']]
     # Mostrar en consola el rango de predicción para cada mes
     for _, row in forecast.iterrows():
