@@ -3,7 +3,7 @@ import os
 import pandas as pd
 from flask import session
 from prophet import Prophet
-
+import matplotlib.pyplot as plt
 predict = Blueprint('prediction', __name__)
 
 @predict.route('/procesar', methods=['POST'])
@@ -73,28 +73,72 @@ def predecir():
     future_dates = pd.date_range(start=fecha_inicio_dt, periods=3, freq='MS')
     future_df = pd.DataFrame({'ds': future_dates})
     forecast = model.predict(future_df)
+    # Crear figura de predicción
+    fig = model.plot(forecast)
+
+    # Ajustar el tamaño si querés (opcional)
+    fig.set_size_inches(10, 6)
+
+    # Crear carpeta si no existe
+    output_dir = "static/img/predicciones_img"
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Guardar imagen (por ejemplo: prediccion_2025_01.png)
+    nombre_archivo = f"prediccion_{anio}_{trimestre}.png"
+    ruta_imagen = os.path.join(output_dir, nombre_archivo)
+    fig.savefig(ruta_imagen)
+
+    # Cerrar figura para evitar warnings si haces varias
+    plt.close(fig)
     pred_trimestre = forecast[['ds', 'yhat']]
+    # Mostrar en consola el rango de predicción para cada mes
+    for _, row in forecast.iterrows():
+        fecha = row['ds'].strftime('%Y-%m')
+        yhat = row['yhat']
+        yhat_lower = row['yhat_lower']
+        yhat_upper = row['yhat_upper']
+
+        error_inf_pct = ((yhat - yhat_lower) / yhat) * 100 if yhat != 0 else 0
+        error_sup_pct = ((yhat_upper - yhat) / yhat) * 100 if yhat != 0 else 0
+
+        print(f"📊 {fecha} | Predicción: {round(yhat, 2)} kWh")
+        print(f"   🔽 Margen inferior: {round(yhat_lower, 2)} kWh ({round(error_inf_pct, 2)}%)")
+        print(f"   🔼 Margen superior: {round(yhat_upper, 2)} kWh ({round(error_sup_pct, 2)}%)")
 
     # 5. Verificar si las fechas ya existen en PrediccionHuarazTotal.csv
     pred_uno_path = "static/data/Predicciones/PrediccionHuarazTotal.csv"
-    df_pred_uno = pd.read_csv(pred_uno_path, sep=";") if os.path.exists(pred_uno_path) else pd.DataFrame(columns=['ANIO', 'MES', 'PREDICCION_KWH', 'CONSUMO_REAL_KWH', 'MARGEN_ERROR(MAPE)'])
+    df_pred_uno = pd.read_csv(pred_uno_path, sep=";") if os.path.exists(pred_uno_path) else pd.DataFrame(columns=[
+    'ANIO', 'MES', 'PREDICCION_KWH', 'CONSUMO_REAL_KWH', 'MARGEN_ERROR(MAPE)',
+    'M_I(%)', 'M_S(%)'
+])
+
 
     fechas_existentes = df_pred_uno.apply(lambda row: f"{int(row['ANIO'])}-{int(row['MES']):02d}" if pd.notnull(row['ANIO']) and pd.notnull(row['MES']) else "", axis=1).tolist()
 
     nuevas_filas = []
-    for _, row in pred_trimestre.iterrows():
+    for _, row in forecast.iterrows():
         fecha_str = row['ds'].strftime('%Y-%m')
         if fecha_str in fechas_existentes:
             flash(f"⚠️ Ya existe una predicción para {fecha_str}. No se sobrescribió.")
             continue
 
+        yhat = row['yhat']
+        yhat_lower = row['yhat_lower']
+        yhat_upper = row['yhat_upper']
+
+        error_inf_pct = ((yhat - yhat_lower) / yhat) * 100 if yhat != 0 else 0
+        error_sup_pct = ((yhat_upper - yhat) / yhat) * 100 if yhat != 0 else 0
+
         nuevas_filas.append({
             'ANIO': row['ds'].year,
             'MES': row['ds'].month,
-            'PREDICCION_KWH': round(row['yhat'], 2),
+            'PREDICCION_KWH': round(yhat, 2),
             'CONSUMO_REAL_KWH': "",  # Vacío por ahora
-            'MARGEN_ERROR(MAPE)': ""  # Vacío por ahora
+            'MARGEN_ERROR(MAPE)': "",  # Vacío por ahora
+            'M_I(%)': round(error_inf_pct, 2),
+            'M_S(%)': round(error_sup_pct, 2)
         })
+
 
     if nuevas_filas:
         df_pred_uno = pd.concat([df_pred_uno, pd.DataFrame(nuevas_filas)], ignore_index=True)
