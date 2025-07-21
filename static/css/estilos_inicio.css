@@ -9,10 +9,11 @@ h3 {
   margin: 0 auto;
   padding: 2em;
   margin-bottom: 20px;
-  background: #11121a;
+  background: #020202;
   text-align: center;
   border-radius: 10px;
   position: relative;
+  text-shadow: 6px 5px 0 #202020;
 }
 
 @property --angle {
