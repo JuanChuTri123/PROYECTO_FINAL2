@@ -81,7 +81,7 @@ Subir archivo
     {% if meses_faltantes %}
     <div style="margin-top: 20px; padding: 10px; background-color: #333; border-left: 5px solid crimson;">
         <h4>Meses pendientes por subir datos reales:</h4>
-        <ul>
+        <ul style="list-style-type: none;">
             {% for anio, mes in meses_faltantes %}
             <li>{{ "(%02d) " % mes }}{{ ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                 "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"][mes-1] }} {{ anio }}</li>
