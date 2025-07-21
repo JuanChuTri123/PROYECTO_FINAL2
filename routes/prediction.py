@@ -52,7 +52,7 @@ def predecir():
     fecha_inicio = f"{anio}-{str(trimestre).zfill(2)}-01"
     fecha_inicio_dt = pd.to_datetime(fecha_inicio)
 
-    # 2. Cargar data histórica
+    # 2. Cargamos data histórica
     df = pd.read_csv("static/data/Total_Huaraz/DataHistorica.csv", sep=";")
     df['ds'] = pd.to_datetime(df['ANIO'].astype(str) + '-' + df['MES'].astype(str).str.zfill(2) + '-01')
     df['y'] = df['CONSUMO_TOTAL_KWH']
@@ -62,8 +62,8 @@ def predecir():
     df_train = df[df['ds'] <= ultima_fecha][['ds', 'y']]
     
     params = {
-    'changepoint_prior_scale': 0.01,
-    'seasonality_prior_scale': 0.01,
+    'changepoint_prior_scale': 0.01, #Controla la flexibilidad del modelo para detectar cambios de tendencia
+    'seasonality_prior_scale': 0.01, #Controla cuánto puede variar la estacionalidad
     'seasonality_mode': 'multiplicative'
     }
     model = Prophet(**params)
