@@ -1,0 +1,21 @@
+.floating-text {
+  color: white;
+  display: inline-block;
+  animation: floatY 4s ease-in-out infinite;
+
+  /* Sombra tipo 3D */
+  text-shadow: 6px 5px 0 #202020;     /* tercera capa más oscura */
+}
+
+/* Animación para efecto flotante */
+@keyframes floatY {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px); /* hacia arriba */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
