@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_inicio.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_subir.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/textoflotante.css') }}">
+    <link rel="icon" href="/static/img/predicciones_img/logo.jpg" type="image/jpg">
     <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}" defer></script>
     <title>{% block title %}Inicio{% endblock %}</title>
 </head>
@@ -17,7 +19,8 @@
 
     <nav id="sidebar">
         <ul>
-            <li>
+            <li style="align-items: center;"">
+                <img src=" /static/img/predicciones_img/logo.jpg" alt="Icono" style=" width: 20px; height: 20px; margin-left: 14px;">
                 <span class="logo">Hidrandina</span>
                 <button onclick=toggleSidebar() id="toggle-button">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
@@ -103,8 +106,8 @@
         </div>
 
         <div class="container blue">
-            <h2>Bienvenida y presentación</h2>
-            <br>
+            <h2 class="floating-text">Bienvenida y presentación</h2>
+            <br> <br>
             <h3>Este programa utiliza modelos avanzados de análisis de datos para predecir el consumo energético en tu
                 ciudad, ayudando a optimizar los recursos y planificar de manera más eficiente el uso de energía. Con
                 las predicciones generadas, se puede anticipar la demanda energética y tomar decisiones informadas para
@@ -117,8 +120,8 @@
                 Por favor, selecciona una de las opciones disponibles para comenzar.</h3>
         </div>
         <div class="container blue">
-            <h2>Propósito del sistema</h2>
-            <br>
+            <h2 class="floating-text">Propósito del sistema</h2>
+            <br> <br>
             <h3>- Predecir el consumo energético mensual. <br>
 
                 - Facilitar la planificación basada en datos. <br>
@@ -127,8 +130,8 @@
         </div>
 
         <div class="container blue">
-            <h2>Tecnologías utilizadas</h2>
-            <br>
+            <h2 class="floating-text">Tecnologías utilizadas</h2>
+            <br> <br>
             <h3>Python: Lenguaje principal para la lógica del sistema.</h3>
             <h3>Facebook Prophet: Modelo de series temporales para realizar predicciones.</h3>
             <h3>Pandas y NumPy: Procesamiento y análisis de datos históricos.</h3>
